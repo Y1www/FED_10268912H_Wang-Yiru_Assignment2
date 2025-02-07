@@ -1,0 +1,104 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff7e6;
+}
+
+.header {
+    background-color: #ff8c00;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.user-controls {
+    display: flex;
+    align-items: center;
+}
+
+.user-controls span {
+    margin-right: 15px;
+}
+
+.sell-button {
+    background-color: white;
+    color: #ff8c00;
+    border: 2px solid #ff8c00;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.sell-button:hover {
+    background-color: #ff8c00;
+    color: white;
+}
+
+.chat-container {
+    display: flex;
+    margin: 20px;
+}
+
+.chat-list {
+    width: 30%;
+    background-color: #ffcc80;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.chat-window {
+    width: 70%;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.chat-input {
+    display: flex;
+    margin-top: 10px;
+}
+
+.chat-input input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 2px solid #ff8c00;
+    border-radius: 5px;
+}
+
+.chat-input button {
+    background-color: #ff8c00;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin-left: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.chat-input button:hover {
+    background-color: #e67600;
+}
