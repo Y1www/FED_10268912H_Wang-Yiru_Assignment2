@@ -17,7 +17,7 @@
                 <button>All Categories</button>
             </nav>
             <div class="auth-buttons">
-                <button>Register</button>
+                <button id="register-btn">Register</button>
                 <button>Login</button>
                 <button class="sell-btn">Sell</button>
             </div>
@@ -146,6 +146,31 @@
             </div>
         </section>
     </main>
+    <div id="register-popup" class="popup-overlay hidden">
+        <div class="popup-content">
+            <h2>Create Account</h2>
+            <div class="social-buttons">
+                <button class="social-btn" id="gmail-btn">Gmail</button>
+                <button class="social-btn" id="facebook-btn">Facebook</button>
+                <button class="social-btn" id="email-btn">Email</button>
+            </div>
+            <button id="close-popup" class="close-btn">&times;</button>
+        </div>
+    </div>
+
+    <!-- Email Registration Popup -->
+    <div id="email-popup" class="popup-overlay hidden">
+        <div class="popup-content">
+            <h2>Email Registration</h2>
+            <form id="email-form">
+                <input type="email" placeholder="Enter your email" required><br>
+                <input type="text" placeholder="Enter your username" required><br>
+                <input type="password" placeholder="Enter your password" required><br>
+                <button type="submit">Register</button>
+            </form>
+            <button id="close-email-popup" class="close-btn">&times;</button>
+        </div>
+    </div>
     <script src="main_before_login.js"></script>
 </body>
 </html>
