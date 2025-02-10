@@ -184,14 +184,16 @@ main {
 form {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 10px;
 }
 
 input {
     padding: 10px;
-    width: 100%;
+    width: 80%;
     border: 1px solid #ddd;
     border-radius: 5px;
+    text-align: center;
 }
 
 form button {
@@ -201,4 +203,20 @@ form button {
     padding: 10px;
     cursor: pointer;
     border-radius: 5px;
+    width: 80%;
+}
+
+.notice {
+    font-size: 0.8em;
+    color: #555;
+    margin-top: 10px;
+}
+
+.notice a {
+    color: #ff8c00;
+    text-decoration: none;
+}
+
+.notice a:hover {
+    text-decoration: underline;
 }
