@@ -11,7 +11,7 @@
         <div class="top-bar">
             <div class="logo">MokeSell</div>
             <nav>
-                <button>Electronics</button>
+                <button onclick="location.href='Electronics.html'">Electronics</button>
                 <button>Fashion</button>
                 <button>Luxury</button>
                 <button>All Categories</button>
@@ -26,8 +26,15 @@
 
     <main>
         <div class="search-section">
-            <input type="text" placeholder="Search for an item">
-            <button>Search</button>
+            <input type="text" id="search-input" placeholder="Search for an item">
+            <button id="search-btn">Search</button>
+        </div>
+
+        <div id="search-popup" class="popup-overlay hidden">
+            <div class="popup-content">
+                <button id="close-search-popup" class="close-btn">&times;</button>
+                <div id="search-result"></div>
+            </div>
         </div>
 
         <div class="ads-section">
@@ -53,7 +60,7 @@
             <div class="trending-grid">
                 <div class="item">
                     <img src="https://via.placeholder.com/150" alt="Trending Item">
-                    <p>Product 1<br>$10</p>
+                    <p>Product 1<br>$10<br>Description: Car</p>
                 </div>
                 <div class="item">
                     <img src="https://via.placeholder.com/150" alt="Trending Item">
@@ -65,7 +72,7 @@
                 </div>
                 <div class="item">
                     <img src="https://via.placeholder.com/150" alt="Trending Item">
-                    <p>Product 4<br>$40</p>
+                    <p>Product 4<br>$40<br>Description: Car</p>
                 </div>
                 <div class="item">
                     <img src="https://via.placeholder.com/150" alt="Trending Item">
