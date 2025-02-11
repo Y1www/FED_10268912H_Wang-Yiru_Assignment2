@@ -65,3 +65,42 @@ window.addEventListener('click', (event) => {
         loginPopup.classList.add('hidden');
     }
 });
+
+// Search function
+const searchInput = document.getElementById('search-input');
+const searchButton = document.getElementById('search-btn');
+const searchPopup = document.getElementById('search-popup');
+const searchResult = document.getElementById('search-result');
+const closeSearchPopupButton = document.getElementById('close-search-popup');
+
+searchButton.addEventListener('click', () => {
+    const query = searchInput.value.toLowerCase();
+    const items = document.querySelectorAll('.item');
+    let results = '';
+
+    items.forEach(item => {
+        const description = item.querySelector('p').textContent.toLowerCase();
+        if (description.includes(query)) {
+            results += `<div class="item">${item.innerHTML}</div>`;
+        }
+    });
+
+    if (results) {
+        searchResult.innerHTML = results;
+    } else {
+        searchResult.innerHTML = '<p>No results found.</p>';
+    }
+    searchPopup.classList.remove('hidden');
+});
+
+// Close the search popup when clicking the "X" button
+closeSearchPopupButton.addEventListener('click', () => {
+    searchPopup.classList.add('hidden');
+});
+
+// Close the search popup when clicking outside of it
+window.addEventListener('click', (event) => {
+    if (event.target === searchPopup) {
+        searchPopup.classList.add('hidden');
+    }
+});
