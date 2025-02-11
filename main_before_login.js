@@ -76,20 +76,26 @@ const closeSearchPopupButton = document.getElementById('close-search-popup');
 searchButton.addEventListener('click', () => {
     const query = searchInput.value.toLowerCase();
     const items = document.querySelectorAll('.item');
-    let results = '';
+
+    // Clear previous results
+    searchResult.innerHTML = '';
+
+    let hasResults = false;
 
     items.forEach(item => {
         const description = item.querySelector('p').textContent.toLowerCase();
         if (description.includes(query)) {
-            results += `<div class="item">${item.innerHTML}</div>`;
+            // Clone the item element to avoid referencing the original
+            const resultItem = item.cloneNode(true);
+            searchResult.appendChild(resultItem);
+            hasResults = true;
         }
     });
 
-    if (results) {
-        searchResult.innerHTML = results;
-    } else {
+    if (!hasResults) {
         searchResult.innerHTML = '<p>No results found.</p>';
     }
+
     searchPopup.classList.remove('hidden');
 });
 
