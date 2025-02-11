@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>List an Item - Carousell</title>
+  <title>List an Item - MokeSell</title>
   <link rel="stylesheet" href="listing.css">
 </head>
 <body>
@@ -11,10 +11,17 @@
     <h1>List an Item</h1>
     <form id="list-item-form" onsubmit="submitForm(event)">
       <!-- Photo Upload -->
-      <div class="photo-upload" onclick="uploadPhoto()">
+      <!-- <div class="photo-upload" onclick="uploadPhoto()">
         <span>Select photos</span>
         <input type="file" id="photos" multiple style="display: none;">
+      </div> -->
+      
+      <div class="photo-upload" onclick="document.getElementById('photos').click();">
+        <span>Select photos</span>
+        <input type="file" id="photos" multiple style="display: none;" onchange="handleFileSelect()">
       </div>
+      
+      
 
       <!-- Category -->
       <label for="category">Category</label>
@@ -91,6 +98,43 @@
         .then(data => alert('Item listed successfully!'))
         .catch(error => console.error('Error:', error));
     }
+
+    function handleFileSelect() {
+      const input = document.getElementById('photos');
+      const preview = document.querySelector('.photo-upload');
+
+      if (input.files.length > 0) {
+        // Clear previous content
+        preview.innerHTML = '';
+
+        // Loop through selected files
+        for (let i = 0; i < input.files.length; i++) {
+          const file = input.files[i];
+
+          // Ensure the file is an image
+          if (file.type.startsWith('image/')) {
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+              const img = document.createElement('img');
+              img.src = e.target.result;
+              img.alt = 'Uploaded Image';
+              img.style.width = '100%'; // Full width
+              img.style.height = 'auto';
+              img.style.borderRadius = '8px';
+              img.style.marginTop = '10px';
+
+              preview.appendChild(img);
+            };
+
+            reader.readAsDataURL(file);
+          }
+        }
+      }
+    }
+
+
+
   </script>
 </body>
 </html>
