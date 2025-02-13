@@ -14,7 +14,7 @@ Mokesell offers a clean and straightforward interface that allows users to brows
 We prioritize security with  payment gateways like credit/debit cards.  All transactions are encrypted to protect user data.
 
 ### Diverse Product Range
-From electronics and fashion to luxury items and daily essentials, Mokesell offers a wide variety of products to meet every need.
+Items are organized into categories for easy navigation. From electronics and fashion to luxury items and daily essentials, Mokesell offers a wide variety of products to meet every need.
 
 ### Interactive Shopping Cart
 Our interactive shopping cart lets users add, remove, and manage their items easily. The cart automatically updates prices and quantities for a hassle-free experience.
@@ -22,11 +22,17 @@ Our interactive shopping cart lets users add, remove, and manage their items eas
 ### Secure Checkout Process
 The checkout process is streamlined and secure, ensuring that all payment and personal information is encrypted and safeguarded.
 
-### User Account Managements
-Users can register, log in, see their order history, saved items, and payment methods.
+### User Authentication
+Secure login and registration system.
 
 ### Mobile Responsiveness
 Mokesell is fully responsive, ensuring that users have a seamless experience whether they are on a desktop, tablet, or mobile phone.
+
+### Product Listings
+Users can browse and post second-hand items.
+
+### Messaging System
+Buyers and sellers can communicate.
 
 
 
