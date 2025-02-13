@@ -16,7 +16,19 @@ document.getElementById('payment-form').addEventListener('submit', async (event)
     });
 
     if (response.ok) {
-        alert('Payment successful!');
+        // Show the success modal
+        const modal = document.getElementById('success-modal');
+        modal.classList.remove('hidden');
+
+        // Close the modal when the close button is clicked
+        document.querySelector('.close-btn').addEventListener('click', () => {
+            modal.classList.add('hidden');
+        });
+
+        // Close the modal after 3 seconds
+        setTimeout(() => {
+            modal.classList.add('hidden');
+        }, 3000);
     } else {
         alert('Payment failed. Please try again.');
     }
