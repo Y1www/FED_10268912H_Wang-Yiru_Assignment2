@@ -42,3 +42,6 @@ Buyers and sellers can communicate.
 
 
 Mokesell aims to bridge the gap between buyers and sellers by offering a reliable, secure, and enjoyable e-commerce platform for all.
+
+### Github Page
+https://github.com/Y1www/FED_10268912H_Wang-Yiru_Assignment2.git
