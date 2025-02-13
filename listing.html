@@ -9,7 +9,7 @@
 <body>
   <header>
     <div class="top-bar">
-      <div class="logo">MokeSell</div>
+      <div class="logo" onclick="location.href='main_before_login.html'">MokeSell</div>
       <nav>
         <button onclick="location.href='Electronics.html'">Electronics</button>
         <button>Fashion</button>
@@ -17,7 +17,7 @@
         <button>All Categories</button>
       </nav>
       <div class="auth-buttons">
-        <button class="sell-btn">Sell</button>
+        <button class="sell-btn" onclick="location.href='listing.html'">Sell</button>
       </div>
     </div>
   </header>
@@ -26,7 +26,7 @@
     <h1>List an Item</h1>
     <form id="list-item-form" onsubmit="submitForm(event)">
       <!-- Photo Upload -->
-      <div class="photo-upload" onclick="document.getElementById('photos').click();">
+     document.getElementById('photos').click();">
         <span>Select photos</span>
         <input type="file" id="photos" multiple style="display: none;" onchange="handleFileSelect()">
       </div>
