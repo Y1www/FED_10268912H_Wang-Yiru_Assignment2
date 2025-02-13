@@ -110,3 +110,28 @@ window.addEventListener('click', (event) => {
         searchPopup.classList.add('hidden');
     }
 });
+
+// Handle registration form submission
+const emailForm = document.getElementById('email-form');
+emailForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const email = emailForm.querySelector('input[type="email"]').value;
+    const username = emailForm.querySelector('input[type="text"]').value;
+    const password = emailForm.querySelector('input[type="password"]').value;
+
+    const response = await fetch('https://assign2-1328.restdb.io/rest/registeration', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'x-apikey': '67aaf7e957206d84d9e4b76b'
+        },
+        body: JSON.stringify({ email, username, password })
+    });
+
+    if (response.ok) {
+        alert('Registration successful!');
+        emailPopup.classList.add('hidden');
+    } else {
+        alert('Registration failed. Please try again.');
+    }
+});
