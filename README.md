@@ -22,8 +22,8 @@ Our interactive shopping cart lets users add, remove, and manage their items eas
 ### Secure Checkout Process
 The checkout process is streamlined and secure, ensuring that all payment and personal information is encrypted and safeguarded.
 
-### User Account Management
-Users can register, log in, and manage their account details, including order history, saved items, and payment methods.
+### User Account Managements
+Users can register, log in, see their order history, saved items, and payment methods.
 
 ### Mobile Responsiveness
 Mokesell is fully responsive, ensuring that users have a seamless experience whether they are on a desktop, tablet, or mobile phone.
