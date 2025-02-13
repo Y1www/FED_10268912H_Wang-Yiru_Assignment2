@@ -16,6 +16,18 @@ const closeLoginPopupButton = document.getElementById('close-login-popup');
 // "Log in" link in the register popup
 const loginLink = document.getElementById('login-link');
 
+// Success modal references
+const successModal = document.getElementById('success-modal');
+const closeSuccessModalButton = document.querySelector('.modal .close-btn');
+
+// Login success modal references
+const loginSuccessModal = document.getElementById('login-success-modal');
+const closeLoginSuccessModalButton = document.querySelector('#login-success-modal .close-btn');
+
+// Top bar references
+const authButtons = document.querySelector('.auth-buttons');
+const topBar = document.querySelector('.top-bar');
+
 // Show the register popup when the register button is clicked
 registerButton.addEventListener('click', () => {
     registerPopup.classList.remove('hidden');
@@ -129,9 +141,67 @@ emailForm.addEventListener('submit', async (event) => {
     });
 
     if (response.ok) {
-        alert('Registration successful!');
+        // Close the email registration popup
         emailPopup.classList.add('hidden');
+
+        // Show the success modal
+        successModal.classList.remove('hidden');
+
+        // Close the modal when the close button is clicked
+        closeSuccessModalButton.addEventListener('click', () => {
+            successModal.classList.add('hidden');
+        });
+
+        // Close the modal after 3 seconds
+        setTimeout(() => {
+            successModal.classList.add('hidden');
+
+            // Update the top bar to show "Hello, xxx" and keep the sell button
+            authButtons.innerHTML = `<span>Hello, ${username}</span><button class="sell-btn" style="margin-left: 10px;">Sell</button>`;
+        }, 3000);
     } else {
         alert('Registration failed. Please try again.');
+    }
+});
+
+// Handle login form submission
+const loginForm = document.getElementById('login-form');
+loginForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const email = loginForm.querySelector('input[type="email"]').value;
+    const password = loginForm.querySelector('input[type="password"]').value;
+
+    const response = await fetch('https://assign2-1328.restdb.io/rest/registeration', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'x-apikey': '67aaf7e957206d84d9e4b76b'
+        }
+    });
+
+    const users = await response.json();
+    const user = users.find(user => user.email === email && user.password === password);
+
+    if (user) {
+        // Close the login popup
+        loginPopup.classList.add('hidden');
+
+        // Show the login success modal
+        loginSuccessModal.classList.remove('hidden');
+
+        // Close the modal when the close button is clicked
+        closeLoginSuccessModalButton.addEventListener('click', () => {
+            loginSuccessModal.classList.add('hidden');
+        });
+
+        // Close the modal after 3 seconds
+        setTimeout(() => {
+            loginSuccessModal.classList.add('hidden');
+
+            // Update the top bar to show "Hello, xxx" and keep the sell button
+            authButtons.innerHTML = `<span>Hello, ${user.username}</span><button class="sell-btn" style="margin-left: 10px;">Sell</button>`;
+        }, 3000);
+    } else {
+        alert('Login failed. Please check your email and password.');
     }
 });
