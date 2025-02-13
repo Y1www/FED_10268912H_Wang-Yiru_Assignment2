@@ -7,21 +7,31 @@
   <link rel="stylesheet" href="listing.css">
 </head>
 <body>
+  <header>
+    <div class="top-bar">
+      <div class="logo">MokeSell</div>
+      <nav>
+        <button onclick="location.href='Electronics.html'">Electronics</button>
+        <button>Fashion</button>
+        <button>Luxury</button>
+        <button>All Categories</button>
+      </nav>
+      <div class="auth-buttons">
+        <button id="register-btn">Register</button>
+        <button>Login</button>
+        <button class="sell-btn">Sell</button>
+      </div>
+    </div>
+  </header>
+
   <div class="container">
     <h1>List an Item</h1>
     <form id="list-item-form" onsubmit="submitForm(event)">
       <!-- Photo Upload -->
-      <!-- <div class="photo-upload" onclick="uploadPhoto()">
-        <span>Select photos</span>
-        <input type="file" id="photos" multiple style="display: none;">
-      </div> -->
-      
       <div class="photo-upload" onclick="document.getElementById('photos').click();">
         <span>Select photos</span>
         <input type="file" id="photos" multiple style="display: none;" onchange="handleFileSelect()">
       </div>
-      
-      
 
       <!-- Category -->
       <label for="category">Category</label>
@@ -132,9 +142,6 @@
         }
       }
     }
-
-
-
   </script>
 </body>
 </html>
