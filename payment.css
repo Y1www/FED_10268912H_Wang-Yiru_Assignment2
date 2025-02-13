@@ -4,6 +4,7 @@ body {
     padding: 0;
     box-sizing: border-box;
     background-color: #fff7e6;
+    overflow-x: hidden;
 }
 
 header {
@@ -16,16 +17,31 @@ header {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-header input {
-    padding: 8px;
-    width: 50%;
-    border: 2px solid white;
-    border-radius: 4px;
-    outline: none;
+header .top-bar {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
 
-header div {
+nav button {
+    margin: 0 5px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
     font-weight: bold;
+}
+
+.sell-btn {
+    background-color: #ffffff;
+    color: #ff8c00;
+    border-radius: 4px;
+    padding: 5px 10px;
+}
+
+.sell-btn:hover {
+    background-color: #e67600;
+    color: white;
 }
 
 main {
