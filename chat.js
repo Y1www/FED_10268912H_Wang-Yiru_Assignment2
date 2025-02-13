@@ -1,55 +1,67 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const chatMessages = document.getElementById("chat-messages");
-    const messageInput = document.getElementById("message-input");
-    const sendButton = document.getElementById("send-button");
-
-    // Placeholder API simulation
-    const fetchMessages = async () => {
-        return [
-            { sender: "seller", text: "Hello! How can I help you?" },
-            { sender: "buyer", text: "I'm interested in buying your product." },
-            { sender: "seller", text: "Great! Do you have any questions?" },
-        ];
+document.addEventListener('DOMContentLoaded', () => {
+    const chatItems = document.getElementById('chat-items');
+    const chatMessages = document.getElementById('chat-messages');
+    const messageInput = document.getElementById('message-input');
+    const sendButton = document.getElementById('send-button');
+    
+    // Added more users
+    const chats = [
+        { id: 1, name: 'John Doe' },
+        { id: 2, name: 'Jane Smith' },
+        { id: 3, name: 'Alice Johnson' },
+        { id: 4, name: 'Bob Brown' },
+        { id: 5, name: 'Emma Wilson' },
+        { id: 6, name: 'Michael Lee' },
+        { id: 7, name: 'Sophia Miller' },
+        { id: 8, name: 'James Anderson' },
+        { id: 9, name: 'Olivia Taylor' },
+        { id: 10, name: 'Daniel Martinez' }
+    ];
+    
+    const messages = {
+        1: [{ sender: 'John', text: 'Hi there!' }],
+        2: [{ sender: 'Jane', text: 'Is this item still available?' }],
+        3: [{ sender: 'Alice', text: 'Hello! How much is the price?' }],
+        4: [{ sender: 'Bob', text: 'I’m interested in your listing.' }],
+        5: [{ sender: 'Emma', text: 'Can you deliver?' }],
+        6: [{ sender: 'Michael', text: 'Hey, do you have more pictures?' }],
+        7: [{ sender: 'Sophia', text: 'Is this new or used?' }],
+        8: [{ sender: 'James', text: 'Would you accept offers?' }],
+        9: [{ sender: 'Olivia', text: 'How soon can you meet up?' }],
+        10: [{ sender: 'Daniel', text: 'Is the price negotiable?' }]
     };
-
-    const renderMessages = (messages) => {
-        chatMessages.innerHTML = "";
-        messages.forEach((message) => {
-            const messageDiv = document.createElement("div");
-            messageDiv.classList.add("message", message.sender);
-            messageDiv.textContent = message.text;
-            chatMessages.appendChild(messageDiv);
-        });
-        chatMessages.scrollTop = chatMessages.scrollHeight;
-    };
-
-    const addMessage = (text, sender) => {
-        const messageDiv = document.createElement("div");
-        messageDiv.classList.add("message", sender);
-        messageDiv.textContent = text;
-        chatMessages.appendChild(messageDiv);
-        chatMessages.scrollTop = chatMessages.scrollHeight;
-    };
-
-    sendButton.addEventListener("click", () => {
+    
+    chats.forEach(chat => {
+        const chatItem = document.createElement('div');
+        chatItem.classList.add('chat-item');
+        chatItem.textContent = chat.name;
+        chatItem.addEventListener('click', () => loadChat(chat.id));
+        chatItems.appendChild(chatItem);
+    });
+    
+    function loadChat(chatId) {
+        chatMessages.innerHTML = '';
+        if (messages[chatId]) {
+            messages[chatId].forEach(message => {
+                chatMessages.appendChild(createMessageElement(message));
+            });
+        }
+    }
+    
+    sendButton.addEventListener('click', () => {
         const text = messageInput.value.trim();
         if (text) {
-            addMessage(text, "buyer");
-            messageInput.value = "";
-
-            // Simulate seller's response
-            setTimeout(() => {
-                addMessage("Thank you for your message. I will get back to you shortly!", "seller");
-            }, 1000);
+            const newMessage = { sender: 'You', text };
+            chatMessages.appendChild(createMessageElement(newMessage));
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            messageInput.value = '';
         }
     });
-
-    messageInput.addEventListener("keypress", (e) => {
-        if (e.key === "Enter") {
-            sendButton.click();
-        }
-    });
-
-    // Initialize with API messages
-    fetchMessages().then((messages) => renderMessages(messages));
+    
+    function createMessageElement(message) {
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add('message', message.sender === 'You' ? 'sent' : 'received');
+        messageDiv.textContent = message.text;
+        return messageDiv;
+    }
 });
